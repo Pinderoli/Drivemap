@@ -15,6 +15,9 @@ struct ProfileView: View {
                     .font(.subheadline)
                     .foregroundStyle(.white.opacity(0.4))
                     .multilineTextAlignment(.center)
+                Text("Hello! Pizza!")
+                    .font(.subheadline.bold())
+                    .foregroundStyle(.white)
             }
         }
     }
