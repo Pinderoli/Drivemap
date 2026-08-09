@@ -7,7 +7,7 @@ struct MapView: View {
 
     var body: some View {
         ZStack(alignment: .topTrailing) {
-            TarmacMapRepresentable(locationManager: locationManager)
+            DrivemapMapRepresentable(locationManager: locationManager)
                 .ignoresSafeArea()
 
             VStack(spacing: 8) {
@@ -33,7 +33,7 @@ struct MapView: View {
 
 // MARK: - UIViewRepresentable
 
-struct TarmacMapRepresentable: UIViewRepresentable {
+struct DrivemapMapRepresentable: UIViewRepresentable {
     let locationManager: LocationManager
 
     func makeUIView(context: Context) -> MKMapView {
@@ -176,7 +176,7 @@ private struct LocationDeniedOverlay: View {
                 Text("Location Access Required")
                     .font(.title3.bold())
                     .foregroundStyle(.white)
-                Text("Tarmac tracks your location to reveal the map as you drive.")
+                Text("Drivemap tracks your location to reveal the map as you drive.")
                     .font(.subheadline)
                     .foregroundStyle(.white.opacity(0.6))
                     .multilineTextAlignment(.center)

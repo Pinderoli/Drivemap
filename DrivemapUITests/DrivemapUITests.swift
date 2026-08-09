@@ -1,13 +1,13 @@
 //
-//  TarmacUITests.swift
-//  TarmacUITests
+//  DrivemapUITests.swift
+//  DrivemapUITests
 //
 //  Created by Oliver Pinder on 24/07/2026.
 //
 
 import XCTest
 
-final class TarmacUITests: XCTestCase {
+final class DrivemapUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

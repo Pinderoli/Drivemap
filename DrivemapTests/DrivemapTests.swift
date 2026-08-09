@@ -1,14 +1,14 @@
 //
-//  TarmacTests.swift
-//  TarmacTests
+//  DrivemapTests.swift
+//  DrivemapTests
 //
 //  Created by Oliver Pinder on 24/07/2026.
 //
 
 import Testing
-@testable import Tarmac
+@testable import Drivemap
 
-struct TarmacTests {
+struct DrivemapTests {
 
     @Test func example() async throws {
         // Write your test here and use APIs like `#expect(...)` to check expected conditions.

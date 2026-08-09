@@ -1,13 +1,13 @@
 //
-//  TarmacUITestsLaunchTests.swift
-//  TarmacUITests
+//  DrivemapUITestsLaunchTests.swift
+//  DrivemapUITests
 //
 //  Created by Oliver Pinder on 24/07/2026.
 //
 
 import XCTest
 
-final class TarmacUITestsLaunchTests: XCTestCase {
+final class DrivemapUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true

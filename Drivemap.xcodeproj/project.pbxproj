@@ -12,14 +12,14 @@
 			containerPortal = D15F24583014092100F451AD /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = D15F245F3014092100F451AD;
-			remoteInfo = Tarmac;
+			remoteInfo = Drivemap;
 		};
 		D15F24783014092300F451AD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D15F24583014092100F451AD /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = D15F245F3014092100F451AD;
-			remoteInfo = Tarmac;
+			remoteInfo = Drivemap;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -30,19 +30,19 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		D15F24623014092100F451AD /* Tarmac */ = {
+		D15F24623014092100F451AD /* Drivemap */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Tarmac;
+			path = Drivemap;
 			sourceTree = "<group>";
 		};
-		D15F24703014092300F451AD /* TarmacTests */ = {
+		D15F24703014092300F451AD /* DrivemapTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = TarmacTests;
+			path = DrivemapTests;
 			sourceTree = "<group>";
 		};
-		D15F247A3014092300F451AD /* TarmacUITests */ = {
+		D15F247A3014092300F451AD /* DrivemapUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = TarmacUITests;
+			path = DrivemapUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -75,9 +75,9 @@
 		D15F24573014092100F451AD = {
 			isa = PBXGroup;
 			children = (
-				D15F24623014092100F451AD /* Tarmac */,
-				D15F24703014092300F451AD /* TarmacTests */,
-				D15F247A3014092300F451AD /* TarmacUITests */,
+				D15F24623014092100F451AD /* Drivemap */,
+				D15F24703014092300F451AD /* DrivemapTests */,
+				D15F247A3014092300F451AD /* DrivemapUITests */,
 				D15F24613014092100F451AD /* Products */,
 			);
 			sourceTree = "<group>";
@@ -108,12 +108,12 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				D15F24623014092100F451AD /* Tarmac */,
+				D15F24623014092100F451AD /* Drivemap */,
 			);
 			name = Drivemap;
 			packageProductDependencies = (
 			);
-			productName = Tarmac;
+			productName = Drivemap;
 			productReference = D15F24603014092100F451AD /* Drivemap.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -131,12 +131,12 @@
 				D15F246F3014092300F451AD /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				D15F24703014092300F451AD /* TarmacTests */,
+				D15F24703014092300F451AD /* DrivemapTests */,
 			);
 			name = DrivemapTests;
 			packageProductDependencies = (
 			);
-			productName = TarmacTests;
+			productName = DrivemapTests;
 			productReference = D15F246D3014092300F451AD /* DrivemapTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
@@ -154,12 +154,12 @@
 				D15F24793014092300F451AD /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				D15F247A3014092300F451AD /* TarmacUITests */,
+				D15F247A3014092300F451AD /* DrivemapUITests */,
 			);
 			name = DrivemapUITests;
 			packageProductDependencies = (
 			);
-			productName = TarmacUITests;
+			productName = DrivemapUITests;
 			productReference = D15F24773014092300F451AD /* DrivemapUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
@@ -400,7 +400,7 @@
 				DEVELOPMENT_TEAM = SAM7M445SP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Tarmac tracks your location to reveal the map as you drive.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Drivemap tracks your location to reveal the map as you drive.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -433,7 +433,7 @@
 				DEVELOPMENT_TEAM = SAM7M445SP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Tarmac tracks your location to reveal the map as you drive.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Drivemap tracks your location to reveal the map as you drive.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -516,7 +516,7 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Tarmac;
+				TEST_TARGET_NAME = Drivemap;
 			};
 			name = Debug;
 		};
@@ -536,7 +536,7 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Tarmac;
+				TEST_TARGET_NAME = Drivemap;
 			};
 			name = Release;
 		};
