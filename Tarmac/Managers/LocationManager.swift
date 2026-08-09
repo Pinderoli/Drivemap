@@ -7,18 +7,14 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
 
     var authorizationStatus: CLAuthorizationStatus = .notDetermined
     var currentLocation: CLLocation?
-    var visitedLocations: [CLLocationCoordinate2D] = []
-    var routeCoordinates: [CLLocationCoordinate2D] = []
+    var locations: [CLLocationCoordinate2D] = []
     var visitedTiles: Set<TileID> = []
 
     override init() {
         super.init()
         clManager.delegate = self
         clManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
-
-        // TESTING: distanceFilter = 0 fires on every GPS fix (even stationary).
-        // Tighten to 5 when moving to production.
-        clManager.distanceFilter = kCLDistanceFilterNone
+        clManager.distanceFilter = 5
 
         authorizationStatus = clManager.authorizationStatus
         loadAll()
@@ -40,47 +36,35 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else { return }
 
-        // TESTING: relaxed to 100m so indoor/poor-signal GPS still records.
-        // Tighten to 50 for production.
-        guard location.horizontalAccuracy > 0, location.horizontalAccuracy < 100 else { return }
+        guard location.horizontalAccuracy > 0, location.horizontalAccuracy < 50 else { return }
 
         currentLocation = location
         let coord = location.coordinate
 
-        visitedLocations.append(coord)
-        routeCoordinates.append(coord)
+        self.locations.append(coord)
         visitedTiles.insert(TileID(coord))
 
         // Persist every 10 points to reduce I/O
-        if visitedLocations.count % 10 == 0 {
+        if self.locations.count % 10 == 0 {
             persistAll()
         }
     }
 
     // MARK: - Persistence
 
-    private var visitedFileURL: URL {
+    private var locationsFileURL: URL {
         FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-            .appendingPathComponent("visitedLocations.json")
-    }
-
-    private var routeFileURL: URL {
-        FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-            .appendingPathComponent("routeCoordinates.json")
+            .appendingPathComponent("locations.json")
     }
 
     private func persistAll() {
-        let visited = visitedLocations.map { ["lat": $0.latitude, "lon": $0.longitude] }
-        try? JSONSerialization.data(withJSONObject: visited).write(to: visitedFileURL)
-
-        let route = routeCoordinates.map { ["lat": $0.latitude, "lon": $0.longitude] }
-        try? JSONSerialization.data(withJSONObject: route).write(to: routeFileURL)
+        let encoded = locations.map { ["lat": $0.latitude, "lon": $0.longitude] }
+        try? JSONSerialization.data(withJSONObject: encoded).write(to: locationsFileURL)
     }
 
     private func loadAll() {
-        visitedLocations = load(from: visitedFileURL)
-        routeCoordinates = load(from: routeFileURL)
-        visitedTiles = Set(visitedLocations.map { TileID($0) })
+        locations = load(from: locationsFileURL)
+        visitedTiles = Set(locations.map { TileID($0) })
     }
 
     private func load(from url: URL) -> [CLLocationCoordinate2D] {

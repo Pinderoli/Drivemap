@@ -67,10 +67,10 @@ struct TarmacMapRepresentable: UIViewRepresentable {
         private var lastRouteCount = 0
 
         func sync(map: MKMapView, locationManager: LocationManager) {
-            let route = locationManager.routeCoordinates
-            // Rebuild every new point while testing so the line feels live;
-            // tighten to every 5 pts once happy with the visual.
-            guard route.count != lastRouteCount else { return }
+            let route = locationManager.locations
+            // Rebuild the polyline every 5 new points to balance a responsive
+            // line against the cost of a full overlay rebuild.
+            guard route.count - lastRouteCount >= 5 else { return }
             lastRouteCount = route.count
             rebuildRoadLines(on: map, coordinates: route)
         }
@@ -99,7 +99,7 @@ struct TarmacMapRepresentable: UIViewRepresentable {
 
             case let glow as RoadGlowPolyline:
                 let r = MKPolylineRenderer(polyline: glow)
-                // Wide, soft halo — bump lineWidth up for testing visibility
+                // Wide, soft halo behind the solid core line below
                 r.strokeColor = UIColor.white.withAlphaComponent(0.22)
                 r.lineWidth = 24
                 r.lineCap = .round
